@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_auth"
+    android:background="@drawable/bg_gradient_main"
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,10 +15,10 @@
         <!-- Top Gold Bar Accent -->
         <View
             android:id="@+id/accent_bar"
-            android:layout_width="60dp"
-            android:layout_height="4dp"
+            android:layout_width="48dp"
+            android:layout_height="3dp"
             android:background="@drawable/bg_button_gold"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="56dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -26,10 +26,10 @@
         <!-- App Logo -->
         <ImageView
             android:id="@+id/iv_logo"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:src="@drawable/ic_launcher_foreground"
-            android:layout_marginTop="@dimen/spacing_lg"
+            android:layout_marginTop="@dimen/spacing_xl"
             app:layout_constraintTop_toBottomOf="@id/accent_bar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -41,10 +41,10 @@
             android:layout_height="wrap_content"
             android:text="TARBIYAH"
             android:textColor="@color/gold_primary"
-            android:textSize="30sp"
+            android:textSize="28sp"
             android:textStyle="bold"
-            android:letterSpacing="0.12"
-            android:layout_marginTop="@dimen/spacing_sm"
+            android:letterSpacing="0.15"
+            android:layout_marginTop="@dimen/spacing_md"
             app:layout_constraintTop_toBottomOf="@id/iv_logo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -54,10 +54,11 @@
             android:id="@+id/tv_tagline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="AI LEARN"
-            android:textColor="@color/green_light"
-            android:textSize="14sp"
-            android:letterSpacing="0.2"
+            android:text="A I  L E A R N"
+            android:textColor="@color/green_accent"
+            android:textSize="12sp"
+            android:letterSpacing="0.3"
+            android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@id/tv_app_name"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -70,7 +71,7 @@
             android:text="Selamat Datang Kembali"
             android:textColor="@color/text_secondary"
             android:textSize="14sp"
-            android:layout_marginTop="@dimen/spacing_xl"
+            android:layout_marginTop="32dp"
             app:layout_constraintTop_toBottomOf="@id/tv_tagline"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -80,57 +81,69 @@
             android:id="@+id/card_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/black_card"
-            app:cardCornerRadius="@dimen/card_corner_radius"
-            app:cardElevation="@dimen/card_elevation"
-            android:layout_marginTop="@dimen/spacing_md"
+            app:cardBackgroundColor="@color/transparent"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            android:layout_marginTop="@dimen/spacing_lg"
             app:layout_constraintTop_toBottomOf="@id/tv_welcome"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
-
+            
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/bg_premium_card"
                 android:orientation="vertical"
                 android:padding="@dimen/spacing_lg">
 
                 <!-- Email Input -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/til_email"
-                    style="@style/Widget.TarbiyahAiLearn.TextInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/label_email"
-                    app:startIconDrawable="@android:drawable/ic_menu_myplaces">
+                    app:hintTextColor="@color/gold_primary"
+                    app:boxBackgroundMode="none">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/bg_input_outline"
+                        android:padding="16dp"
                         android:inputType="textEmailAddress"
                         android:textColor="@color/text_primary"
                         android:textColorHint="@color/text_hint"
+                        android:drawableStart="@android:drawable/ic_dialog_email"
+                        android:drawablePadding="12dp"
+                        android:drawableTint="@color/green_light"
                         android:imeOptions="actionNext" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- Password Input -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/til_password"
-                    style="@style/Widget.TarbiyahAiLearn.TextInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/label_password"
+                    app:hintTextColor="@color/gold_primary"
                     android:layout_marginTop="@dimen/spacing_md"
-                    app:startIconDrawable="@android:drawable/ic_lock_lock"
-                    app:endIconMode="password_toggle">
+                    app:endIconMode="password_toggle"
+                    app:endIconTint="@color/gold_primary"
+                    app:boxBackgroundMode="none">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/bg_input_outline"
+                        android:padding="16dp"
                         android:inputType="textPassword"
                         android:textColor="@color/text_primary"
                         android:textColorHint="@color/text_hint"
+                        android:drawableStart="@android:drawable/ic_lock_lock"
+                        android:drawablePadding="12dp"
+                        android:drawableTint="@color/green_light"
                         android:imeOptions="actionDone" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -143,18 +156,18 @@
                     android:textColor="@color/gold_primary"
                     android:textSize="@dimen/text_sm"
                     android:layout_gravity="end"
-                    android:paddingTop="@dimen/spacing_sm"
+                    android:paddingTop="@dimen/spacing_md"
                     android:paddingBottom="@dimen/spacing_sm" />
 
                 <!-- Login Button -->
                 <Button
                     android:id="@+id/btn_login"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/btn_height"
+                    android:layout_height="56dp"
                     android:text="@string/btn_login"
                     android:textColor="@color/black_primary"
                     android:textStyle="bold"
-                    android:textSize="@dimen/text_body"
+                    android:textSize="16sp"
                     android:letterSpacing="0.05"
                     android:background="@drawable/bg_button_gold"
                     android:layout_marginTop="@dimen/spacing_sm" />
@@ -168,19 +181,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="@dimen/spacing_lg"
+            android:layout_marginTop="@dimen/spacing_xl"
             app:layout_constraintTop_toBottomOf="@id/card_login"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="@dimen/spacing_lg">
+            android:layout_marginBottom="48dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/no_account"
                 android:textColor="@color/text_secondary"
-                android:textSize="@dimen/text_sm" />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tv_go_register"
@@ -188,7 +201,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/btn_register"
                 android:textColor="@color/gold_primary"
-                android:textSize="@dimen/text_sm"
+                android:textSize="14sp"
                 android:textStyle="bold"
                 android:paddingStart="4dp"
                 android:paddingEnd="4dp" />

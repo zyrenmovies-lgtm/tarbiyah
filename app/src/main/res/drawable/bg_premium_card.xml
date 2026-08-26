@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
-    <solid android:color="#99332A0D" /> <!-- Translucent dark gold -->
+    <solid android:color="#991B2420" /> <!-- Translucent dark green/black -->
     <corners android:radius="16dp" />
     <stroke
         android:width="0.5dp"
-        android:color="#40D4AF37" /> <!-- Subtle classic gold border -->
+        android:color="#33D4AF37" /> <!-- Very thin subtle gold border -->
 </shape>

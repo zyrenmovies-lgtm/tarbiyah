@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_auth">
+    android:background="@drawable/bg_gradient_main">
 
     <!-- Header -->
     <LinearLayout
@@ -71,7 +71,7 @@
             android:textColor="@color/text_hint"
             android:textStyle="bold"
             android:gravity="center"
-            android:background="@drawable/bg_card_dark" />
+            android:background="@drawable/bg_premium_card" />
         <View
             android:id="@+id/line_2"
             android:layout_width="0dp"
@@ -87,7 +87,7 @@
             android:textColor="@color/text_hint"
             android:textStyle="bold"
             android:gravity="center"
-            android:background="@drawable/bg_card_dark" />
+            android:background="@drawable/bg_premium_card" />
         <View
             android:id="@+id/line_3"
             android:layout_width="0dp"
@@ -103,7 +103,7 @@
             android:textColor="@color/text_hint"
             android:textStyle="bold"
             android:gravity="center"
-            android:background="@drawable/bg_card_dark" />
+            android:background="@drawable/bg_premium_card" />
     </LinearLayout>
 
     <!-- ViewPager for steps -->

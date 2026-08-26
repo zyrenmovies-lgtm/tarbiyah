@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black_primary"
+    android:background="@drawable/bg_gradient_main"
     android:scrollbars="none">
 
     <LinearLayout
@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="@dimen/spacing_lg"
-            android:background="@color/black_surface">
+            android:background="@color/transparent">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -89,7 +89,7 @@
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:src="@android:drawable/ic_menu_edit"
-                    android:tint="@color/gold_primary"
+                    app:tint="@color/gold_primary"
                     android:layout_marginStart="@dimen/spacing_md" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -118,7 +118,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:src="@android:drawable/ic_menu_report_image"
-                    android:tint="@color/color_warning"
+                    app:tint="@color/color_warning"
                     android:layout_marginEnd="@dimen/spacing_md" />
 
                 <LinearLayout
@@ -148,7 +148,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@android:drawable/ic_media_next"
-                    android:tint="@color/gold_primary" />
+                    app:tint="@color/gold_primary" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -176,7 +176,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:src="@android:drawable/ic_btn_speak_now"
-                    android:tint="@color/green_accent"
+                    app:tint="@color/green_accent"
                     android:layout_marginEnd="@dimen/spacing_md" />
 
                 <LinearLayout
@@ -206,7 +206,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@android:drawable/ic_media_next"
-                    android:tint="@color/green_accent" />
+                    app:tint="@color/green_accent" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -218,7 +218,7 @@
             android:layout_marginStart="@dimen/spacing_md"
             android:layout_marginEnd="@dimen/spacing_md"
             android:layout_marginBottom="@dimen/spacing_md"
-            app:cardBackgroundColor="@color/black_card"
+            app:cardBackgroundColor="@color/transparent"
             app:cardCornerRadius="@dimen/card_corner_radius"
             app:cardElevation="4dp">
 
@@ -227,13 +227,14 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:padding="@dimen/spacing_lg"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_premium_card">
 
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:src="@android:drawable/ic_menu_share"
-                    android:tint="@color/text_secondary"
+                    app:tint="@color/text_secondary"
                     android:layout_marginEnd="@dimen/spacing_md" />
 
                 <LinearLayout
@@ -279,7 +280,7 @@
             android:layout_marginStart="@dimen/spacing_md"
             android:layout_marginEnd="@dimen/spacing_md"
             android:layout_marginBottom="@dimen/spacing_md"
-            app:cardBackgroundColor="@color/black_card"
+            app:cardBackgroundColor="@color/transparent"
             app:cardCornerRadius="@dimen/card_corner_radius"
             app:cardElevation="4dp">
 
@@ -288,13 +289,14 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:padding="@dimen/spacing_lg"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_premium_card">
 
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:src="@android:drawable/ic_media_ff"
-                    android:tint="@color/gold_primary"
+                    app:tint="@color/gold_primary"
                     android:layout_marginEnd="@dimen/spacing_md" />
 
                 <LinearLayout
@@ -324,7 +326,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@android:drawable/ic_media_next"
-                    android:tint="@color/gold_primary" />
+                    app:tint="@color/gold_primary" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
