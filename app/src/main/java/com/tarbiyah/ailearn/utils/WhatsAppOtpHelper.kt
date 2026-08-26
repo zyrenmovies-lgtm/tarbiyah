@@ -32,7 +32,7 @@ object WhatsAppOtpHelper {
     }
 
     /**
-     * Kirim OTP ke Nomor WhatsApp Siswa via Backend Render
+     * Kirim OTP ke Nomor WhatsApp Siswa Menggunakan API Fonnte
      */
     fun sendOtpToStudent(
         phone: String,
@@ -42,11 +42,26 @@ object WhatsAppOtpHelper {
         val otp = generateOtp()
         targetPhone = phone
 
+        val messageText = """
+            *Assalamu'alaikum Warahmatullahi Wabarakatuh* 🌙
+            
+            Halo *$studentName*, terima kasih telah mendaftar di *TARBIYAH: AI LEARN*.
+            
+            Berikut adalah Kode OTP verifikasi pendaftaran akun Anda:
+            🔐 *$otp*
+            
+            _Kode ini bersifat rahasia dan berlaku selama 5 menit. Jangan berikan kode ini kepada siapa pun._
+            
+            *TARBIYAH AI LEARN*
+            _Belajar Cerdas Berlandaskan Nilai-Nilai Islam_
+        """.trimIndent()
+
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val url = URL("${Constants.WA_GATEWAY_URL}/api/send-otp")
+                val url = URL("https://api.fonnte.com/send")
                 val connection = (url.openConnection() as HttpURLConnection).apply {
                     requestMethod = "POST"
+                    setRequestProperty("Authorization", Constants.FONNTE_TOKEN)
                     setRequestProperty("Content-Type", "application/json; charset=UTF-8")
                     setRequestProperty("Accept", "application/json")
                     doOutput = true
@@ -56,9 +71,8 @@ object WhatsAppOtpHelper {
                 }
 
                 val payload = JSONObject().apply {
-                    put("phone", phone)
-                    put("otp", otp)
-                    put("name", studentName)
+                    put("target", phone)
+                    put("message", messageText)
                 }
 
                 OutputStreamWriter(connection.outputStream).use { writer ->
@@ -67,24 +81,24 @@ object WhatsAppOtpHelper {
                 }
 
                 val responseCode = connection.responseCode
-                val inputStream = if (responseCode in 200..299) {
-                    connection.inputStream
-                } else {
-                    connection.errorStream
-                }
-
+                val inputStream = if (responseCode in 200..299) connection.inputStream else connection.errorStream
                 val responseText = BufferedReader(InputStreamReader(inputStream)).use { it.readText() }
                 val responseJson = JSONObject(responseText)
-                val isSuccess = responseJson.optBoolean("success", responseCode == 200)
-                val msg = responseJson.optString("message", "Status: $responseCode")
+                
+                // Fonnte mengembalikan { "status": true, ... }
+                val isSuccess = responseJson.optBoolean("status", responseCode == 200)
+                val msg = responseJson.optString("detail", "Berhasil kirim OTP")
 
                 withContext(Dispatchers.Main) {
-                    onResult(isSuccess, msg)
+                    if (isSuccess) {
+                        onResult(true, "OTP WhatsApp berhasil dikirim.")
+                    } else {
+                        onResult(false, "Gagal mengirim: $msg")
+                    }
                 }
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
-                    // Fallback pesan jika backend render belum live atau offline
-                    onResult(false, "Gagal terhubung ke server WhatsApp: ${e.localizedMessage ?: "Cek koneksi internet Anda"}")
+                    onResult(false, "Gagal terhubung ke Fonnte: ${e.localizedMessage}")
                 }
             }
         }
@@ -114,7 +128,7 @@ object WhatsAppOtpHelper {
     }
 
     /**
-     * Kirim Laporan Evaluasi Pembelajaran & Ibadah ke Nomor Orang Tua / Wali
+     * Kirim Laporan Evaluasi Pembelajaran & Ibadah ke Nomor Orang Tua / Wali via Fonnte
      */
     fun sendReportToParent(
         parentPhone: String,
@@ -122,11 +136,27 @@ object WhatsAppOtpHelper {
         reportContent: String,
         onResult: (success: Boolean, message: String) -> Unit
     ) {
+        val messageText = """
+            *Assalamu'alaikum Warahmatullahi Wabarakatuh* 🌿
+            _Laporan Pembelajaran & Ibadah Harian (Tarbiyah AI Learn)_
+            
+            Yth. Bapak/Ibu Wali dari *$studentName*,
+            
+            Berikut adalah ringkasan evaluasi perkembangan belajar dan ibadah ananda:
+            $reportContent
+            
+            Semoga ananda senantiasa istiqomah dalam menuntut ilmu dan berakhlakul karimah.
+            
+            *Tarbiyah AI Learn Bot*
+            _Sistem Pendamping Belajar Madrasah Digital_
+        """.trimIndent()
+
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val url = URL("${Constants.WA_GATEWAY_URL}/api/send-parent-report")
+                val url = URL("https://api.fonnte.com/send")
                 val connection = (url.openConnection() as HttpURLConnection).apply {
                     requestMethod = "POST"
+                    setRequestProperty("Authorization", Constants.FONNTE_TOKEN)
                     setRequestProperty("Content-Type", "application/json; charset=UTF-8")
                     setRequestProperty("Accept", "application/json")
                     doOutput = true
@@ -135,9 +165,8 @@ object WhatsAppOtpHelper {
                 }
 
                 val payload = JSONObject().apply {
-                    put("parentPhone", parentPhone)
-                    put("studentName", studentName)
-                    put("reportContent", reportContent)
+                    put("target", parentPhone)
+                    put("message", messageText)
                 }
 
                 OutputStreamWriter(connection.outputStream).use { writer ->
@@ -149,8 +178,8 @@ object WhatsAppOtpHelper {
                 val inputStream = if (responseCode in 200..299) connection.inputStream else connection.errorStream
                 val responseText = BufferedReader(InputStreamReader(inputStream)).use { it.readText() }
                 val responseJson = JSONObject(responseText)
-                val isSuccess = responseJson.optBoolean("success", responseCode == 200)
-                val msg = responseJson.optString("message", "Status: $responseCode")
+                val isSuccess = responseJson.optBoolean("status", responseCode == 200)
+                val msg = responseJson.optString("detail", "Berhasil kirim laporan")
 
                 withContext(Dispatchers.Main) {
                     onResult(isSuccess, msg)

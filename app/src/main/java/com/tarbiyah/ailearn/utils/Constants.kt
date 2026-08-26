@@ -3,6 +3,9 @@ package com.tarbiyah.ailearn.utils
 object Constants {
     const val APP_PACKAGE_NAME = "com.tarbiyah.ailearn"
 
+    // Fonnte API Token untuk kirim OTP WhatsApp
+    const val FONNTE_TOKEN = "GfK6cqom3hxbhHv7YxCJ"
+
     // Firebase Database Paths
     const val DB_USERS = "users"
     const val DB_FEED = "feed"
@@ -21,6 +24,9 @@ object Constants {
     const val PREF_SCHOOL = "school"
     const val PREF_LATITUDE = "latitude"
     const val PREF_LONGITUDE = "longitude"
+    const val PREF_STUDENT_PHONE = "student_phone"
+    const val PREF_PARENT_PHONE = "parent_phone"
+    const val PREF_IS_PHONE_VERIFIED = "is_phone_verified"
     const val PREF_IS_LOGGED_IN = "is_logged_in"
 
     // Prayer Times
