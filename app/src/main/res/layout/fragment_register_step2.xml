@@ -15,7 +15,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Data Akademik & Kontak"
+            android:text="Data Akademik &amp; Kontak"
             android:textColor="@color/gold_text"
             android:textSize="@dimen/text_lg"
             android:textStyle="bold"
