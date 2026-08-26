@@ -9,6 +9,7 @@ on:
     branches:
       - main
       - develop
+  workflow_dispatch:  # Tombol "Run workflow" manual di GitHub Actions UI
 
 jobs:
   build:
