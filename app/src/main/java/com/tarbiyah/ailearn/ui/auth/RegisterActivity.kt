@@ -1,11 +1,19 @@
 package com.tarbiyah.ailearn.ui.auth
 
+import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -17,12 +25,19 @@ import com.tarbiyah.ailearn.databinding.FragmentRegisterStep1Binding
 import com.tarbiyah.ailearn.databinding.FragmentRegisterStep2Binding
 import com.tarbiyah.ailearn.databinding.FragmentRegisterStep3Binding
 import com.tarbiyah.ailearn.databinding.FragmentRegisterStep4Binding
+import com.tarbiyah.ailearn.utils.WhatsAppOtpHelper
 
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
     private var currentStep = 0
     private val totalSteps = 4
+
+    // Data registrasi & status verifikasi
+    var studentName: String = ""
+    var studentPhone: String = ""
+    var parentPhone: String = ""
+    var isStudentPhoneVerified: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +57,16 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun setupButtons() {
         binding.btnNext.setOnClickListener {
+            // Validasi Step 2: Nomor WhatsApp Siswa Wajib Terverifikasi
+            if (currentStep == 1 && !isStudentPhoneVerified) {
+                Toast.makeText(
+                    this,
+                    "⚠️ Silakan verifikasi nomor WhatsApp siswa dengan OTP terlebih dahulu!",
+                    Toast.LENGTH_LONG
+                ).show()
+                return@setOnClickListener
+            }
+
             if (currentStep < totalSteps - 1) {
                 currentStep++
                 binding.vpRegister.currentItem = currentStep
@@ -87,7 +112,7 @@ class RegisterActivity : AppCompatActivity() {
                 textView.setBackgroundResource(R.drawable.bg_button_gold)
             } else {
                 textView.setTextColor(getColor(R.color.text_hint))
-                textView.setBackgroundResource(R.drawable.bg_card_dark)
+                textView.setBackgroundResource(R.drawable.bg_premium_card)
             }
         }
 
@@ -137,6 +162,15 @@ class RegisterStep1Fragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.etFullName.setOnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus) {
+                (activity as? RegisterActivity)?.studentName = binding.etFullName.text.toString().trim()
+            }
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
@@ -144,11 +178,12 @@ class RegisterStep1Fragment : Fragment() {
 }
 
 // ============================
-// STEP 2: Data Akademik
+// STEP 2: Data Akademik & OTP WhatsApp
 // ============================
 class RegisterStep2Fragment : Fragment() {
     private var _binding: FragmentRegisterStep2Binding? = null
     private val binding get() = _binding!!
+    private var resendTimer: CountDownTimer? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentRegisterStep2Binding.inflate(inflater, container, false)
@@ -158,6 +193,7 @@ class RegisterStep2Fragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupDropdowns()
+        setupOtpFlow()
     }
 
     private fun setupDropdowns() {
@@ -179,8 +215,129 @@ class RegisterStep2Fragment : Fragment() {
         }
     }
 
+    private fun setupOtpFlow() {
+        binding.btnSendOtpStudent.setOnClickListener {
+            val phone = binding.etStudentPhone.text.toString().trim()
+            if (phone.isEmpty() || phone.length < 9) {
+                binding.tilStudentPhone.error = "Masukkan nomor WhatsApp yang valid"
+                return@setOnClickListener
+            }
+            binding.tilStudentPhone.error = null
+
+            val registerActivity = activity as? RegisterActivity
+            val studentName = registerActivity?.studentName?.ifEmpty { "Siswa Tarbiyah" } ?: "Siswa Tarbiyah"
+
+            binding.btnSendOtpStudent.isEnabled = false
+            binding.btnSendOtpStudent.text = "Mengirim..."
+
+            WhatsAppOtpHelper.sendOtpToStudent(phone, studentName) { success, message ->
+                binding.btnSendOtpStudent.isEnabled = true
+                binding.btnSendOtpStudent.text = "Kirim OTP"
+
+                if (success) {
+                    Toast.makeText(requireContext(), "OTP terkirim ke WhatsApp $phone", Toast.LENGTH_SHORT).show()
+                } else {
+                    // Berikan info fallback jika server belum dihubungkan / demo mode
+                    val demoCode = WhatsAppOtpHelper.generateOtp()
+                    Toast.makeText(
+                        requireContext(),
+                        "Mode Simulasi (Server Offline). Kode OTP Anda: $demoCode",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+
+                // Tampilkan Dialog Input OTP
+                showOtpVerificationDialog(phone)
+            }
+        }
+
+        binding.etParentContact.setOnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus) {
+                (activity as? RegisterActivity)?.parentPhone = binding.etParentContact.text.toString().trim()
+            }
+        }
+    }
+
+    private fun showOtpVerificationDialog(phoneNumber: String) {
+        val dialog = Dialog(requireContext())
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(R.layout.dialog_otp_verification)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.window?.setLayout(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        dialog.setCancelable(false)
+
+        val tvDestInfo = dialog.findViewById<TextView>(R.id.tv_otp_dest_info)
+        val etOtpCode = dialog.findViewById<EditText>(R.id.et_otp_code)
+        val tvResend = dialog.findViewById<TextView>(R.id.tv_resend_otp)
+        val btnCancel = dialog.findViewById<Button>(R.id.btn_cancel_otp)
+        val btnConfirm = dialog.findViewById<Button>(R.id.btn_confirm_otp)
+
+        tvDestInfo.text = "Kode OTP 6 digit telah dikirimkan ke WhatsApp:\n$phoneNumber"
+
+        // Timer 60 detik
+        resendTimer?.cancel()
+        resendTimer = object : CountDownTimer(60000, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                tvResend.text = "Kirim ulang kode dalam ${millisUntilFinished / 1000}s"
+                tvResend.isEnabled = false
+            }
+            override fun onFinish() {
+                tvResend.text = "Kirim Ulang Kode OTP"
+                tvResend.setTextColor(requireContext().getColor(R.color.gold_primary))
+                tvResend.isEnabled = true
+            }
+        }.start()
+
+        tvResend.setOnClickListener {
+            val studentName = (activity as? RegisterActivity)?.studentName ?: "Siswa"
+            WhatsAppOtpHelper.sendOtpToStudent(phoneNumber, studentName) { _, _ ->
+                Toast.makeText(requireContext(), "Kode OTP baru telah dikirim!", Toast.LENGTH_SHORT).show()
+                resendTimer?.start()
+            }
+        }
+
+        btnCancel.setOnClickListener {
+            resendTimer?.cancel()
+            dialog.dismiss()
+        }
+
+        btnConfirm.setOnClickListener {
+            val inputCode = etOtpCode.text.toString().trim()
+            if (inputCode.length != 6) {
+                Toast.makeText(requireContext(), "Harap masukkan 6 digit kode OTP", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val (isValid, message) = WhatsAppOtpHelper.verifyOtp(inputCode)
+            if (isValid) {
+                resendTimer?.cancel()
+                dialog.dismiss()
+
+                // Update Status Terverifikasi di Step 2
+                val regActivity = activity as? RegisterActivity
+                regActivity?.isStudentPhoneVerified = true
+                regActivity?.studentPhone = phoneNumber
+
+                binding.tvOtpStatus.text = "✅ Terverifikasi (WhatsApp Siswa Aktif)"
+                binding.tvOtpStatus.setTextColor(requireContext().getColor(R.color.green_accent))
+                binding.btnSendOtpStudent.visibility = View.GONE
+                binding.etStudentPhone.isEnabled = false
+
+                Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        dialog.show()
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
+        resendTimer?.cancel()
         _binding = null
     }
 }
@@ -203,13 +360,11 @@ class RegisterStep3Fragment : Fragment() {
     }
 
     private fun setupCascadingDropdowns() {
-        // Sample provinces (in production: load from API)
         val provinces = arrayOf("Riau", "DKI Jakarta", "Jawa Barat", "Jawa Tengah", "Jawa Timur", "Sumatera Utara", "Sumatera Selatan")
         val provAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, provinces)
         binding.spinnerProvince.setAdapter(provAdapter)
 
         binding.spinnerProvince.setOnItemClickListener { _, _, position, _ ->
-            // Sample cascading cities for Riau
             val cities = when (position) {
                 0 -> arrayOf("Kabupaten Indragiri Hilir", "Kabupaten Indragiri Hulu", "Kabupaten Kampar", "Kota Pekanbaru", "Kota Dumai")
                 1 -> arrayOf("Jakarta Pusat", "Jakarta Utara", "Jakarta Selatan", "Jakarta Timur", "Jakarta Barat")
@@ -251,7 +406,7 @@ class RegisterStep3Fragment : Fragment() {
 }
 
 // ============================
-// STEP 4: Verifikasi
+// STEP 4: Verifikasi & GPS
 // ============================
 class RegisterStep4Fragment : Fragment() {
     private var _binding: FragmentRegisterStep4Binding? = null
@@ -272,7 +427,7 @@ class RegisterStep4Fragment : Fragment() {
             binding.tvGpsStatus.text = "Mendeteksi lokasi..."
             binding.btnDetectGps.isEnabled = false
 
-            // Simulate GPS detection
+            // Simulasi deteksi GPS
             binding.root.postDelayed({
                 binding.tvGpsStatus.text = "Terdeteksi: -0.3412, 103.1592 (Tembilahan, Riau)"
                 binding.tvGpsStatus.setTextColor(requireContext().getColor(R.color.green_accent))
@@ -282,8 +437,7 @@ class RegisterStep4Fragment : Fragment() {
         }
 
         binding.btnScanFace.setOnClickListener {
-            // TODO: Implement CameraX face detection
-            Toast.makeText(requireContext(), "Fitur Face ID akan segera hadir", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Fitur Face ID segera hadir", Toast.LENGTH_SHORT).show()
             binding.tvFaceStatus.text = "Wajah berhasil dipindai (demo)"
             binding.tvFaceStatus.setTextColor(requireContext().getColor(R.color.green_accent))
         }
