@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -20,8 +21,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TarbiyahAiLearn"
-        android:networkSecurityConfig="@xml/network_security_config"
-        xmlns:tools="http://schemas.android.com/tools">
+        android:networkSecurityConfig="@xml/network_security_config">
 
         <!-- Splash / Login -->
         <activity
