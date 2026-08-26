@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_auth">
+
+    <!-- Header -->
+    <LinearLayout
+        android:id="@+id/header_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/spacing_lg"
+        android:paddingEnd="@dimen/spacing_lg"
+        android:paddingTop="48dp"
+        android:paddingBottom="@dimen/spacing_md"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/register_title"
+            android:textColor="@color/gold_primary"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lengkapi data dirimu"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/text_md" />
+    </LinearLayout>
+
+    <!-- Step Indicator -->
+    <LinearLayout
+        android:id="@+id/ll_step_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/spacing_lg"
+        android:paddingEnd="@dimen/spacing_lg"
+        android:paddingBottom="@dimen/spacing_md"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toBottomOf="@id/header_register">
+
+        <!-- Step 1 -->
+        <TextView
+            android:id="@+id/step_1"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:text="1"
+            android:textColor="@color/black_primary"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:background="@drawable/bg_button_gold" />
+        <View
+            android:id="@+id/line_1"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_weight="1"
+            android:background="@color/gold_primary" />
+        <!-- Step 2 -->
+        <TextView
+            android:id="@+id/step_2"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:text="2"
+            android:textColor="@color/text_hint"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:background="@drawable/bg_card_dark" />
+        <View
+            android:id="@+id/line_2"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_weight="1"
+            android:background="@color/black_divider" />
+        <!-- Step 3 -->
+        <TextView
+            android:id="@+id/step_3"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:text="3"
+            android:textColor="@color/text_hint"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:background="@drawable/bg_card_dark" />
+        <View
+            android:id="@+id/line_3"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_weight="1"
+            android:background="@color/black_divider" />
+        <!-- Step 4 -->
+        <TextView
+            android:id="@+id/step_4"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:text="4"
+            android:textColor="@color/text_hint"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:background="@drawable/bg_card_dark" />
+    </LinearLayout>
+
+    <!-- ViewPager for steps -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vp_register"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:userInputEnabled="false"
+        app:layout_constraintTop_toBottomOf="@id/ll_step_indicator"
+        app:layout_constraintBottom_toTopOf="@id/ll_nav_buttons" />
+
+    <!-- Navigation Buttons -->
+    <LinearLayout
+        android:id="@+id/ll_nav_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/spacing_lg"
+        android:gravity="center_vertical"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/btn_height"
+            android:layout_weight="1"
+            android:text="@string/btn_back"
+            android:textColor="@color/gold_primary"
+            android:background="@drawable/bg_button_outlined"
+            android:visibility="gone"
+            android:layout_marginEnd="@dimen/spacing_sm" />
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/btn_height"
+            android:layout_weight="1"
+            android:text="@string/btn_next"
+            android:textColor="@color/black_primary"
+            android:textStyle="bold"
+            android:background="@drawable/bg_button_gold" />
+    </LinearLayout>
+
+    <!-- Login Link -->
+    <LinearLayout
+        android:id="@+id/ll_login_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/spacing_sm"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/ll_nav_buttons">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/have_account"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/text_sm" />
+
+        <TextView
+            android:id="@+id/tv_go_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Masuk"
+            android:textColor="@color/gold_primary"
+            android:textSize="@dimen/text_sm"
+            android:textStyle="bold"
+            android:paddingStart="4dp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

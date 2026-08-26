@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_primary"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="80dp">
+
+        <!-- Profile Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_lg"
+            android:gravity="center"
+            android:background="@color/black_surface">
+
+            <!-- Avatar with gold ring -->
+            <FrameLayout
+                android:layout_width="@dimen/avatar_size_xl"
+                android:layout_height="@dimen/avatar_size_xl">
+
+                <ImageView
+                    android:id="@+id/iv_profile_avatar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@android:drawable/ic_menu_myplaces"
+                    android:background="@drawable/bg_avatar_placeholder"
+                    android:padding="@dimen/spacing_md"
+                    android:tint="@color/gold_primary"
+                    android:scaleType="centerInside" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tv_profile_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Muhammad Rizki"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_xl"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/spacing_sm" />
+
+            <TextView
+                android:id="@+id/tv_profile_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@rizki_tarbiyah"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_md" />
+
+            <!-- Level/Jenjang Badge -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/spacing_sm">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_level"
+                    style="@style/Widget.TarbiyahAiLearn.Chip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MA - Kelas X"
+                    android:layout_marginEnd="@dimen/spacing_sm" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_pahala"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1.250 Poin"
+                    app:chipBackgroundColor="@color/green_subtle"
+                    app:chipStrokeColor="@color/green_primary"
+                    app:chipStrokeWidth="1dp"
+                    android:textColor="@color/green_accent" />
+            </LinearLayout>
+
+            <!-- Stats Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/spacing_md">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/tv_followers"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="128"
+                        android:textColor="@color/gold_primary"
+                        android:textSize="@dimen/text_lg"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pengikut"
+                        android:textColor="@color/text_hint"
+                        android:textSize="@dimen/text_xs" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="40dp"
+                    android:background="@color/black_divider" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/tv_following"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="56"
+                        android:textColor="@color/gold_primary"
+                        android:textSize="@dimen/text_lg"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mengikuti"
+                        android:textColor="@color/text_hint"
+                        android:textSize="@dimen/text_xs" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="40dp"
+                    android:background="@color/black_divider" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <TextView
+                        android:id="@+id/tv_study_days"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="42"
+                        android:textColor="@color/gold_primary"
+                        android:textSize="@dimen/text_lg"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hari Belajar"
+                        android:textColor="@color/text_hint"
+                        android:textSize="@dimen/text_xs" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Jurnal Ibadah Harian -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/daily_journal"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_body"
+            android:textStyle="bold"
+            android:layout_marginStart="@dimen/spacing_lg"
+            android:layout_marginEnd="@dimen/spacing_lg"
+            android:layout_marginTop="@dimen/spacing_lg" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_daily_journal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_md"
+            app:cardBackgroundColor="@color/black_card"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_md">
+
+                <!-- Tilawah -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="@dimen/spacing_sm">
+
+                    <CheckBox
+                        android:id="@+id/cb_tilawah"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/gold_primary" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Tilawah Al-Quran"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/text_md"
+                        android:layout_marginStart="@dimen/spacing_sm" />
+
+                    <TextView
+                        android:id="@+id/tv_tilawah_pages"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2 halaman"
+                        android:textColor="@color/text_hint"
+                        android:textSize="@dimen/text_sm" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black_divider" />
+
+                <!-- Sholat Dhuha -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingTop="@dimen/spacing_sm"
+                    android:paddingBottom="@dimen/spacing_sm">
+
+                    <CheckBox
+                        android:id="@+id/cb_dhuha"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/gold_primary" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Sholat Dhuha"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/text_md"
+                        android:layout_marginStart="@dimen/spacing_sm" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2 rakaat"
+                        android:textColor="@color/text_hint"
+                        android:textSize="@dimen/text_sm" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black_divider" />
+
+                <!-- Sholat 5 Waktu -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingTop="@dimen/spacing_sm">
+
+                    <CheckBox
+                        android:id="@+id/cb_sholat_5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/gold_primary" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Sholat 5 Waktu"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/text_md"
+                        android:layout_marginStart="@dimen/spacing_sm" />
+
+                    <com.google.android.material.progressindicator.CircularProgressIndicator
+                        android:id="@+id/progress_sholat"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        app:indicatorColor="@color/green_primary"
+                        app:trackColor="@color/black_divider"
+                        app:trackThickness="3dp"
+                        android:progress="60" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Weekly Progress Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/spacing_lg"
+            android:paddingEnd="@dimen/spacing_lg"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/weekly_progress"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/text_body"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_ai_eval"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:text="@string/ai_evaluation"
+                android:textColor="@color/black_primary"
+                android:textSize="@dimen/text_xs"
+                android:textStyle="bold"
+                android:background="@drawable/bg_button_gold"
+                android:paddingStart="@dimen/spacing_md"
+                android:paddingEnd="@dimen/spacing_md" />
+        </LinearLayout>
+
+        <!-- Chart Placeholder -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_weekly_chart"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_margin="@dimen/spacing_md"
+            app:cardBackgroundColor="@color/black_card"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="@dimen/spacing_md">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Grafik Progres Mingguan"
+                    android:textColor="@color/text_hint"
+                    android:textSize="@dimen/text_sm" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="(Chart akan ditampilkan di sini)"
+                    android:textColor="@color/black_divider"
+                    android:textSize="@dimen/text_xs" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Settings Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_body"
+            android:textStyle="bold"
+            android:layout_marginStart="@dimen/spacing_lg"
+            android:layout_marginTop="@dimen/spacing_sm" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_settings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_md"
+            app:cardBackgroundColor="@color/black_card"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Reminder Settings -->
+                <LinearLayout
+                    android:id="@+id/item_reminder_settings"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/spacing_md"
+                    android:background="?attr/selectableItemBackground">
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:src="@android:drawable/ic_menu_agenda"
+                        android:tint="@color/gold_primary"
+                        android:layout_marginEnd="@dimen/spacing_md" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Pengaturan Reminder"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/text_md" />
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@android:drawable/ic_media_next"
+                        android:tint="@color/text_hint" />
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/black_divider" />
+
+                <!-- Bot Laporan -->
+                <LinearLayout
+                    android:id="@+id/item_bot_settings"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/spacing_md"
+                    android:background="?attr/selectableItemBackground">
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:src="@android:drawable/ic_menu_send"
+                        android:tint="@color/green_primary"
+                        android:layout_marginEnd="@dimen/spacing_md" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Laporan Bot Ortu"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/text_md" />
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@android:drawable/ic_media_next"
+                        android:tint="@color/text_hint" />
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/black_divider" />
+
+                <!-- Logout -->
+                <LinearLayout
+                    android:id="@+id/item_logout"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/spacing_md"
+                    android:background="?attr/selectableItemBackground">
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:src="@android:drawable/ic_menu_close_clear_cancel"
+                        android:tint="@color/color_error"
+                        android:layout_marginEnd="@dimen/spacing_md" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Keluar"
+                        android:textColor="@color/color_error"
+                        android:textSize="@dimen/text_md" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_primary">
+
+    <!-- Main Content -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_lg"
+            android:background="@color/black_surface">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/feed_title"
+                android:textColor="@color/gold_primary"
+                android:textSize="@dimen/text_xl"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Berbagi ilmu, dimulai dari salam"
+                android:textColor="@color/text_secondary"
+                android:textSize="@dimen/text_md" />
+        </LinearLayout>
+
+        <!-- Post Input Card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_post_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_md"
+            app:cardBackgroundColor="@color/black_card"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_md">
+
+                <!-- Salam Warning (hidden by default) -->
+                <TextView
+                    android:id="@+id/tv_salam_warning"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/salam_warning"
+                    android:textColor="@color/color_warning"
+                    android:textSize="@dimen/text_sm"
+                    android:background="@color/gold_subtle"
+                    android:padding="@dimen/spacing_sm"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="top"
+                    android:layout_marginTop="@dimen/spacing_sm">
+
+                    <ImageView
+                        android:layout_width="@dimen/avatar_size_sm"
+                        android:layout_height="@dimen/avatar_size_sm"
+                        android:src="@android:drawable/ic_menu_myplaces"
+                        android:background="@drawable/bg_avatar_placeholder"
+                        android:padding="6dp"
+                        android:tint="@color/gold_primary"
+                        android:layout_marginEnd="@dimen/spacing_sm" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_post_input"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="@string/feed_hint"
+                        android:textColor="@color/text_primary"
+                        android:textColorHint="@color/text_hint"
+                        android:textSize="@dimen/text_md"
+                        android:background="@null"
+                        android:minLines="2"
+                        android:maxLines="5"
+                        android:inputType="textMultiLine|textCapSentences" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="end"
+                    android:layout_marginTop="@dimen/spacing_sm">
+
+                    <Button
+                        android:id="@+id/btn_post"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:text="@string/btn_post"
+                        android:textColor="@color/black_primary"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/text_sm"
+                        android:background="@drawable/bg_button_gold"
+                        android:paddingStart="@dimen/spacing_lg"
+                        android:paddingEnd="@dimen/spacing_lg" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Feed RecyclerView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_feed"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingBottom="80dp"
+            android:clipToPadding="false"
+            android:paddingStart="@dimen/spacing_md"
+            android:paddingEnd="@dimen/spacing_md" />
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,84 @@
+<resources>
+    <string name="app_name">Tarbiyah AI Learn</string>
+    <string name="app_tagline">Belajar Islami, Cerdas Bersama AI</string>
+
+    <!-- Auth -->
+    <string name="login_title">Masuk</string>
+    <string name="login_subtitle">Selamat datang kembali</string>
+    <string name="label_email">Email / Username</string>
+    <string name="label_password">Kata Sandi</string>
+    <string name="btn_login">Masuk</string>
+    <string name="btn_register">Daftar Sekarang</string>
+    <string name="forgot_password">Lupa Kata Sandi?</string>
+    <string name="no_account">Belum punya akun?</string>
+    <string name="have_account">Sudah punya akun?</string>
+    <string name="btn_next">Lanjut</string>
+    <string name="btn_back">Kembali</string>
+    <string name="btn_finish">Selesai Daftar</string>
+
+    <!-- Register Steps -->
+    <string name="register_title">Buat Akun Baru</string>
+    <string name="step_1_title">Data Pribadi</string>
+    <string name="step_2_title">Data Akademik</string>
+    <string name="step_3_title">Domisili</string>
+    <string name="step_4_title">Verifikasi</string>
+    <string name="label_full_name">Nama Lengkap</string>
+    <string name="label_username">Username</string>
+    <string name="label_school">Asal Madrasah / Sekolah</string>
+    <string name="label_level">Jenjang Pendidikan</string>
+    <string name="label_grade">Kelas</string>
+    <string name="label_parent_contact">No. WA/Telegram Orang Tua</string>
+    <string name="label_address">Alamat Jalan</string>
+    <string name="label_rt_rw">RT/RW</string>
+    <string name="label_province">Provinsi</string>
+    <string name="label_city">Kabupaten / Kota</string>
+    <string name="label_district">Kecamatan</string>
+    <string name="label_village">Kelurahan / Desa</string>
+    <string name="label_residence_status">Status Tempat Tinggal</string>
+    <string name="btn_detect_location">Deteksi Lokasi Otomatis</string>
+    <string name="btn_scan_face">Pindai Wajah (Face ID)</string>
+    <string name="face_scan_hint">Posisikan wajah Anda di dalam bingkai untuk pendaftaran Face ID</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Beranda</string>
+    <string name="nav_ai_tutor">AI Tutor</string>
+    <string name="nav_feed">Komunitas</string>
+    <string name="nav_profile">Profil</string>
+
+    <!-- Home Dashboard -->
+    <string name="greeting_prefix">Assalamualaikum,</string>
+    <string name="next_prayer">Sholat Berikutnya</string>
+    <string name="study_progress">Progres Belajar Hari Ini</string>
+    <string name="pahala_points">Poin Pahala</string>
+    <string name="catch_up_mode">Mode Kejar Target</string>
+    <string name="reminders">Pengingat Harian</string>
+    <string name="check_in">Check-In</string>
+    <string name="btn_check_in_prayer">Check-In Sholat</string>
+    <string name="btn_check_in_study">Check-In Belajar</string>
+
+    <!-- AI Tutor -->
+    <string name="ai_tutor_title">AI Tutor</string>
+    <string name="start_study">Mulai Belajar</string>
+    <string name="quick_test">Tes Mendadak AI</string>
+    <string name="tahfidz_assistant">Asisten Tahfidz</string>
+    <string name="focus_room">Ruang Fokus Bersama</string>
+    <string name="catch_up_mode_card">Mode Kejar Target</string>
+
+    <!-- Feed -->
+    <string name="feed_title">Komunitas</string>
+    <string name="feed_hint">Bagikan pemikiranmu... (awali dengan Salam)</string>
+    <string name="btn_post">Kirim</string>
+    <string name="salam_warning">Awali pesanmu dengan Salam terlebih dahulu</string>
+
+    <!-- Profile -->
+    <string name="profile_title">Profil &amp; Jurnal</string>
+    <string name="daily_journal">Jurnal Ibadah Harian</string>
+    <string name="weekly_progress">Progres Mingguan</string>
+    <string name="ai_evaluation">Evaluasi AI Mingguan</string>
+    <string name="settings">Pengaturan</string>
+
+    <!-- Common -->
+    <string name="loading">Memuat&#8230;</string>
+    <string name="error_generic">Terjadi kesalahan, coba lagi</string>
+    <string name="feature_coming_soon">Fitur segera hadir</string>
+</resources>

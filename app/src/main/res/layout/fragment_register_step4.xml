@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_lg">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/step_4_title"
+            android:textColor="@color/gold_text"
+            android:textSize="@dimen/text_lg"
+            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/spacing_md" />
+
+        <!-- Status Tempat Tinggal -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_residence_status"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/text_md"
+            android:layout_marginBottom="@dimen/spacing_sm" />
+
+        <RadioGroup
+            android:id="@+id/rg_residence"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="@dimen/spacing_lg">
+
+            <RadioButton
+                android:id="@+id/rb_with_parents"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bersama Orang Tua"
+                android:textColor="@color/text_primary"
+                android:buttonTint="@color/gold_primary" />
+
+            <RadioButton
+                android:id="@+id/rb_boarding"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Asrama / Pondok Pesantren"
+                android:textColor="@color/text_primary"
+                android:buttonTint="@color/gold_primary"
+                android:layout_marginTop="@dimen/spacing_xs" />
+
+            <RadioButton
+                android:id="@+id/rb_with_guardian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bersama Wali"
+                android:textColor="@color/text_primary"
+                android:buttonTint="@color/gold_primary"
+                android:layout_marginTop="@dimen/spacing_xs" />
+        </RadioGroup>
+
+        <!-- Deteksi GPS -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_gps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/black_card"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="4dp"
+            android:layout_marginBottom="@dimen/spacing_md">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_md">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Titik Koordinat GPS"
+                    android:textColor="@color/gold_primary"
+                    android:textSize="@dimen/text_md"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_gps_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Belum terdeteksi"
+                    android:textColor="@color/text_hint"
+                    android:textSize="@dimen/text_sm"
+                    android:layout_marginTop="@dimen/spacing_xs"
+                    android:layout_marginBottom="@dimen/spacing_sm" />
+
+                <Button
+                    android:id="@+id/btn_detect_gps"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/btn_height"
+                    android:text="@string/btn_detect_location"
+                    android:textColor="@color/black_primary"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_button_gold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Face ID Scan -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_face_scan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/black_card"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_md">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pemindaian Wajah (Face ID)"
+                    android:textColor="@color/gold_primary"
+                    android:textSize="@dimen/text_md"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/face_scan_hint"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="@dimen/text_sm"
+                    android:layout_marginTop="@dimen/spacing_xs"
+                    android:layout_marginBottom="@dimen/spacing_sm" />
+
+                <!-- Face Preview Frame -->
+                <FrameLayout
+                    android:id="@+id/frame_face_preview"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/bg_avatar_placeholder"
+                    android:layout_marginBottom="@dimen/spacing_sm">
+
+                    <ImageView
+                        android:id="@+id/iv_face_preview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@android:drawable/ic_menu_camera"
+                        android:scaleType="centerInside"
+                        android:padding="@dimen/spacing_xl"
+                        android:tint="@color/text_hint" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tv_face_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Wajah belum dipindai"
+                    android:textColor="@color/text_hint"
+                    android:textSize="@dimen/text_sm"
+                    android:layout_marginBottom="@dimen/spacing_sm" />
+
+                <Button
+                    android:id="@+id/btn_scan_face"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/btn_height"
+                    android:text="@string/btn_scan_face"
+                    android:textColor="@color/text_primary"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_card_green" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</ScrollView>

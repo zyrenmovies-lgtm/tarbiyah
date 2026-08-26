@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base Colors -->
+    <color name="black_primary">#0D0D0D</color>
+    <color name="black_surface">#1A1A1A</color>
+    <color name="black_card">#222222</color>
+    <color name="black_card_alt">#2A2A2A</color>
+    <color name="black_divider">#333333</color>
+
+    <!-- Gold Colors -->
+    <color name="gold_primary">#C9A84C</color>
+    <color name="gold_light">#FFD700</color>
+    <color name="gold_dark">#A07830</color>
+    <color name="gold_subtle">#2A230E</color>
+    <color name="gold_text">#E8C96A</color>
+
+    <!-- Green Colors -->
+    <color name="green_primary">#2E7D32</color>
+    <color name="green_light">#4CAF50</color>
+    <color name="green_dark">#1B5E20</color>
+    <color name="green_subtle">#0D1F0E</color>
+    <color name="green_accent">#81C784</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#F5F5F5</color>
+    <color name="text_secondary">#B0B0B0</color>
+    <color name="text_hint">#666666</color>
+    <color name="text_gold">#C9A84C</color>
+    <color name="text_green">#4CAF50</color>
+    <color name="text_red">#EF5350</color>
+
+    <!-- Status Colors -->
+    <color name="color_warning">#FF8F00</color>
+    <color name="color_error">#D32F2F</color>
+    <color name="color_success">#388E3C</color>
+    <color name="color_info">#1565C0</color>
+
+    <!-- Transparent -->
+    <color name="transparent">#00000000</color>
+    <color name="overlay_dark">#99000000</color>
+    <color name="overlay_gold">#33C9A84C</color>
+
+    <!-- Navigation -->
+    <color name="nav_selected">#C9A84C</color>
+    <color name="nav_unselected">#666666</color>
+    <color name="nav_background">#161616</color>
+</resources>

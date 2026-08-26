@@ -1,0 +1,176 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base Theme -->
+    <style name="Theme.TarbiyahAiLearn" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/gold_primary</item>
+        <item name="colorPrimaryVariant">@color/gold_dark</item>
+        <item name="colorOnPrimary">@color/black_primary</item>
+        <item name="colorSecondary">@color/green_primary</item>
+        <item name="colorSecondaryVariant">@color/green_dark</item>
+        <item name="colorOnSecondary">@color/text_primary</item>
+        <item name="colorSurface">@color/black_surface</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="android:colorBackground">@color/black_primary</item>
+        <item name="colorOnBackground">@color/text_primary</item>
+        <item name="android:windowBackground">@color/black_primary</item>
+        <item name="android:statusBarColor">@color/black_primary</item>
+        <item name="android:navigationBarColor">@color/nav_background</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">false</item>
+        <item name="textAppearanceLargePopupMenu">@style/TextAppearance.TarbiyahAiLearn.Popup</item>
+        <item name="textAppearanceSmallPopupMenu">@style/TextAppearance.TarbiyahAiLearn.Popup</item>
+    </style>
+
+    <!-- Popup Menu Text -->
+    <style name="TextAppearance.TarbiyahAiLearn.Popup" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <!-- Splash / Auth Theme (no status bar overlap) -->
+    <style name="Theme.TarbiyahAiLearn.Auth" parent="Theme.TarbiyahAiLearn">
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowTranslucentStatus">false</item>
+    </style>
+
+    <!-- Bottom Navigation Style -->
+    <style name="Widget.TarbiyahAiLearn.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:background">@color/nav_background</item>
+        <item name="itemIconTint">@color/nav_item_color</item>
+        <item name="itemTextColor">@color/nav_item_color</item>
+        <item name="labelVisibilityMode">labeled</item>
+    </style>
+
+    <!-- Card Style -->
+    <style name="Widget.TarbiyahAiLearn.Card" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@color/black_card</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">8dp</item>
+        <item name="strokeColor">@color/black_divider</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <!-- Card Gold Accent -->
+    <style name="Widget.TarbiyahAiLearn.Card.Gold" parent="Widget.TarbiyahAiLearn.Card">
+        <item name="strokeColor">@color/gold_primary</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <!-- Button Primary (Gold) -->
+    <style name="Widget.TarbiyahAiLearn.Button.Gold" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">@color/gold_primary</item>
+        <item name="android:textColor">@color/black_primary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="android:letterSpacing">0.05</item>
+    </style>
+
+    <!-- Button Outlined -->
+    <style name="Widget.TarbiyahAiLearn.Button.Outlined" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="strokeColor">@color/gold_primary</item>
+        <item name="android:textColor">@color/gold_primary</item>
+        <item name="cornerRadius">12dp</item>
+    </style>
+
+    <!-- Button Green -->
+    <style name="Widget.TarbiyahAiLearn.Button.Green" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">@color/green_primary</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">12dp</item>
+    </style>
+
+    <!-- TextInputLayout -->
+    <style name="Widget.TarbiyahAiLearn.TextInput" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">@color/black_card</item>
+        <item name="boxStrokeColor">@color/gold_primary</item>
+        <item name="hintTextColor">@color/gold_primary</item>
+        <item name="android:textColorHint">@color/text_hint</item>
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+        <item name="startIconTint">@color/gold_primary</item>
+        <item name="endIconTint">@color/gold_primary</item>
+    </style>
+
+    <!-- Text Styles -->
+    <style name="TextAppearance.TarbiyahAiLearn.H1" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="android:textColor">@color/gold_primary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="TextAppearance.TarbiyahAiLearn.H2" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.TarbiyahAiLearn.Body" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+    <style name="TextAppearance.TarbiyahAiLearn.Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textColor">@color/text_hint</item>
+    </style>
+
+    <!-- Chip Style -->
+    <style name="Widget.TarbiyahAiLearn.Chip" parent="Widget.MaterialComponents.Chip.Action">
+        <item name="chipBackgroundColor">@color/gold_subtle</item>
+        <item name="chipStrokeColor">@color/gold_primary</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="android:textColor">@color/gold_text</item>
+    </style>
+
+    <!-- FAB Style -->
+    <style name="Widget.TarbiyahAiLearn.FAB" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="backgroundTint">@color/gold_primary</item>
+        <item name="tint">@color/black_primary</item>
+    </style>
+
+    <!-- Progress Bar -->
+    <style name="Widget.TarbiyahAiLearn.ProgressBar" parent="Widget.MaterialComponents.LinearProgressIndicator">
+        <item name="trackColor">@color/black_divider</item>
+        <item name="indicatorColor">@color/gold_primary</item>
+    </style>
+
+    <!-- Tab Layout -->
+    <style name="Widget.TarbiyahAiLearn.TabLayout" parent="Widget.MaterialComponents.TabLayout">
+        <item name="android:background">@color/black_surface</item>
+        <item name="tabSelectedTextColor">@color/gold_primary</item>
+        <item name="tabTextColor">@color/text_secondary</item>
+        <item name="tabIndicatorColor">@color/gold_primary</item>
+    </style>
+
+    <!-- Toolbar -->
+    <style name="Widget.TarbiyahAiLearn.Toolbar" parent="Widget.MaterialComponents.Toolbar.Primary">
+        <item name="android:background">@color/black_primary</item>
+        <item name="titleTextColor">@color/gold_primary</item>
+        <item name="navigationIconTint">@color/gold_primary</item>
+    </style>
+
+    <!-- Alert Dialog Dark Theme -->
+    <style name="AlertDialogTheme" parent="Theme.MaterialComponents.DayNight.Dialog.Alert">
+        <item name="android:background">@color/black_card</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="colorPrimary">@color/gold_primary</item>
+        <item name="colorAccent">@color/gold_primary</item>
+        <item name="android:windowTitleStyle">@style/AlertDialogTitleStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/AlertDialogButtonStyle</item>
+        <item name="buttonBarNegativeButtonStyle">@style/AlertDialogButtonStyleOutlined</item>
+    </style>
+
+    <style name="AlertDialogTitleStyle" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:textColor">@color/gold_primary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AlertDialogButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/gold_primary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AlertDialogButtonStyleOutlined" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.tarbiyah.ailearn.ui.home.HomeFragment"
+        android:label="Beranda" />
+
+    <fragment
+        android:id="@+id/aiTutorFragment"
+        android:name="com.tarbiyah.ailearn.ui.aiTutor.AiTutorFragment"
+        android:label="AI Tutor" />
+
+    <fragment
+        android:id="@+id/feedFragment"
+        android:name="com.tarbiyah.ailearn.ui.feed.FeedFragment"
+        android:label="Komunitas" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.tarbiyah.ailearn.ui.profile.ProfileFragment"
+        android:label="Profil" />
+
+</navigation>
