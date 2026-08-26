@@ -15,12 +15,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/step_2_title"
+            android:text="Data Akademik & Kontak"
             android:textColor="@color/gold_text"
             android:textSize="@dimen/text_lg"
             android:textStyle="bold"
             android:layout_marginBottom="@dimen/spacing_md" />
 
+        <!-- Nama Madrasah / Sekolah -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_school"
             style="@style/Widget.TarbiyahAiLearn.TextInput"
@@ -74,7 +75,7 @@
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusBottomStart="12dp"
             app:boxCornerRadiusBottomEnd="12dp"
-            android:layout_marginBottom="@dimen/spacing_md">
+            android:layout_marginBottom="@dimen/spacing_lg">
             <AutoCompleteTextView
                 android:id="@+id/spinner_grade"
                 android:layout_width="match_parent"
@@ -84,12 +85,80 @@
                 android:focusable="false" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Section: Kontak WhatsApp Siswa (OTP Verification) -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1. Nomor WhatsApp Siswa (Wajib Verifikasi OTP)"
+            android:textColor="@color/gold_primary"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="6dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="4dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_student_phone"
+                style="@style/Widget.TarbiyahAiLearn.TextInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="No. WhatsApp Siswa (08xxx)">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_student_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:textColor="@color/text_primary" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btn_send_otp_student"
+                android:layout_width="wrap_content"
+                android:layout_height="52dp"
+                android:text="Kirim OTP"
+                android:textColor="@color/black_primary"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:background="@drawable/bg_button_gold"
+                android:layout_marginStart="8dp"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_otp_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⚠️ Belum diverifikasi (Wajib OTP untuk lanjut)"
+            android:textColor="@color/color_warning"
+            android:textSize="11sp"
+            android:layout_marginBottom="@dimen/spacing_lg" />
+
+        <!-- Section: Kontak WhatsApp Orang Tua / Wali (Bot Laporan AI) -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2. Nomor WhatsApp Orang Tua / Wali (Laporan AI)"
+            android:textColor="@color/green_accent"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="6dp" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_parent_contact"
             style="@style/Widget.TarbiyahAiLearn.TextInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/label_parent_contact">
+            android:hint="No. WhatsApp Orang Tua (08xxx)"
+            app:helperText="Khusus menerima laporan rekap belajar &amp; ibadah harian dari Bot AI"
+            app:helperTextTextColor="@color/text_hint"
+            android:layout_marginBottom="@dimen/spacing_md">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_parent_contact"
                 android:layout_width="match_parent"
