@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black_primary">
+    android:background="@drawable/bg_main_minimal">
 
     <!-- NavHostFragment takes full screen -->
     <androidx.fragment.app.FragmentContainerView
@@ -22,36 +22,39 @@
         android:id="@+id/nav_divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/black_divider"
+        android:background="#EFE5D9"
+        android:elevation="8dp"
         app:layout_constraintBottom_toTopOf="@id/bottom_navigation" />
 
     <!-- Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/nav_background"
-        app:itemIconTint="@color/nav_item_color"
-        app:itemTextColor="@color/nav_item_color"
+        android:layout_height="64dp"
+        android:background="#FFFFFF"
+        app:itemIconTint="@color/nav_item_color_light"
+        app:itemTextColor="@color/nav_item_color_light"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/bottom_nav_menu"
+        android:elevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- FAB Check-In (visible only when prayer/study time) -->
+    <!-- FAB Check-In -->
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fab_check_in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/fab_margin"
+        android:layout_margin="16dp"
         android:text="@string/check_in"
-        android:textColor="@color/black_primary"
+        android:textColor="#FFFFFF"
         android:textStyle="bold"
         android:visibility="gone"
-        app:backgroundTint="@color/gold_primary"
+        app:backgroundTint="#E08B3D"
         app:icon="@android:drawable/ic_menu_compass"
-        app:iconTint="@color/black_primary"
+        app:iconTint="#FFFFFF"
+        app:elevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bottom_navigation" />
 
