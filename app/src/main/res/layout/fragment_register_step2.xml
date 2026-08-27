@@ -4,237 +4,148 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF8F0"
+    android:background="@color/transparent"
     android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <!-- Header Banner with mosque silhouette feel -->
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:background="@drawable/bg_register_header">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:padding="20dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="📚"
-                    android:textSize="32sp"
-                    android:layout_marginBottom="8dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Data Akademik"
-                    android:textColor="#FFFFFF"
-                    android:textSize="22sp"
-                    android:textStyle="bold"
-                    android:fontFamily="sans-serif-medium" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lengkapi informasi sekolah dan kontak"
-                    android:textColor="#FFE8CC"
-                    android:textSize="12sp"
-                    android:layout_marginTop="4dp" />
-
-            </LinearLayout>
-
-        </FrameLayout>
-
-        <!-- Step Indicator -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:paddingTop="16dp"
-            android:paddingBottom="8dp">
-
-            <View
-                android:layout_width="32dp"
-                android:layout_height="4dp"
-                android:background="#E0D0C0"
-                android:layout_marginEnd="4dp"/>
-
-            <View
-                android:layout_width="32dp"
-                android:layout_height="4dp"
-                android:background="#E87920"
-                android:layout_marginEnd="4dp"/>
-
-            <View
-                android:layout_width="32dp"
-                android:layout_height="4dp"
-                android:background="#E0D0C0"
-                android:layout_marginEnd="4dp"/>
-
-            <View
-                android:layout_width="32dp"
-                android:layout_height="4dp"
-                android:background="#E0D0C0"/>
-
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Langkah 2 dari 4"
-            android:textColor="#A08060"
-            android:textSize="11sp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="16dp"/>
+        android:orientation="vertical"
+        android:paddingTop="8dp"
+        android:paddingBottom="32dp"
+        android:animateLayoutChanges="true">
 
         <!-- Card: Info Sekolah -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            app:cardCornerRadius="16dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="20dp"
             app:cardBackgroundColor="#FFFFFF"
-            app:cardElevation="3dp">
+            app:cardElevation="8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="20dp">
+                android:padding="28dp">
 
                 <!-- Section header -->
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginBottom="16dp">
-
-                    <View
-                        android:layout_width="4dp"
-                        android:layout_height="20dp"
-                        android:background="#E87920"
-                        android:layout_marginEnd="10dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Info Sekolah"
-                        android:textColor="#2D1B00"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:fontFamily="sans-serif-medium"/>
-
-                </LinearLayout>
+                    android:text="Info Sekolah"
+                    android:textColor="#3E2723"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="24dp"/>
 
                 <!-- Nama Sekolah -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Nama Madrasah / Sekolah"
-                    android:textColor="#7A5C3A"
-                    android:textSize="12sp"
+                    android:textColor="#4E342E"
+                    android:textSize="13sp"
                     android:textStyle="bold"
-                    android:layout_marginBottom="6dp"/>
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="4dp"/>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/til_school"
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    app:boxBackgroundColor="#FFF5EB"
-                    app:boxBackgroundMode="filled"
-                    app:boxStrokeColor="#F0CFA0"
-                    app:hintTextColor="#C88A40"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-                    app:boxCornerRadiusTopStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusBottomEnd="10dp">
-                    <com.google.android.material.textfield.TextInputEditText
+                    android:layout_height="56dp"
+                    android:background="@drawable/bg_input_minimal"
+                    android:layout_marginBottom="20dp">
+                    <EditText
                         android:id="@+id/et_school"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textCapWords"
-                        android:textColor="#2D1B00"
-                        android:hint="Contoh: MAN 1 Jakarta"/>
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:hint="Contoh: MAN 1 Jakarta"
+                        android:textColorHint="#A1887F"
+                        android:textColor="#3E2723"
+                        android:textSize="15sp"
+                        android:inputType="textCapWords"/>
+                </FrameLayout>
 
                 <!-- Jenjang -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Jenjang Pendidikan"
-                    android:textColor="#7A5C3A"
-                    android:textSize="12sp"
+                    android:textColor="#4E342E"
+                    android:textSize="13sp"
                     android:textStyle="bold"
-                    android:layout_marginBottom="6dp"/>
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="4dp"/>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/til_level"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Pilih Jenjang"
-                    app:boxBackgroundColor="#FFFFFF"
-                    app:boxStrokeColor="#E0B070"
-                    app:hintTextColor="#C88A40"
-                    app:boxCornerRadiusTopStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusBottomEnd="10dp"
-                    android:layout_marginBottom="16dp">
+                    android:layout_height="56dp"
+                    android:background="@drawable/bg_input_minimal"
+                    android:layout_marginBottom="20dp">
                     <AutoCompleteTextView
                         android:id="@+id/spinner_level"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="#2D1B00"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="48dp"
+                        android:hint="Pilih Jenjang"
+                        android:textColorHint="#A1887F"
+                        android:textColor="#3E2723"
+                        android:textSize="15sp"
                         android:inputType="none"
                         android:focusable="false"/>
-                </com.google.android.material.textfield.TextInputLayout>
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="end|center_vertical"
+                        android:layout_marginEnd="16dp"
+                        android:src="@android:drawable/arrow_down_float"
+                        app:tint="#D7CCC8" />
+                </FrameLayout>
 
                 <!-- Kelas -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Kelas"
-                    android:textColor="#7A5C3A"
-                    android:textSize="12sp"
+                    android:textColor="#4E342E"
+                    android:textSize="13sp"
                     android:textStyle="bold"
-                    android:layout_marginBottom="6dp"/>
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="4dp"/>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/til_grade"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Pilih Kelas"
-                    app:boxBackgroundColor="#FFFFFF"
-                    app:boxStrokeColor="#E0B070"
-                    app:hintTextColor="#C88A40"
-                    app:boxCornerRadiusTopStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusBottomEnd="10dp">
+                    android:layout_height="56dp"
+                    android:background="@drawable/bg_input_minimal">
                     <AutoCompleteTextView
                         android:id="@+id/spinner_grade"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="#2D1B00"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="48dp"
+                        android:hint="Pilih Kelas"
+                        android:textColorHint="#A1887F"
+                        android:textColor="#3E2723"
+                        android:textSize="15sp"
                         android:inputType="none"
                         android:focusable="false"/>
-                </com.google.android.material.textfield.TextInputLayout>
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="end|center_vertical"
+                        android:layout_marginEnd="16dp"
+                        android:src="@android:drawable/arrow_down_float"
+                        app:tint="#D7CCC8" />
+                </FrameLayout>
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -243,18 +154,18 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            app:cardCornerRadius="16dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="20dp"
             app:cardBackgroundColor="#FFFFFF"
-            app:cardElevation="3dp">
+            app:cardElevation="8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="20dp">
+                android:padding="28dp">
 
                 <!-- Section header -->
                 <LinearLayout
@@ -262,47 +173,41 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
-                    android:layout_marginBottom="6dp">
-
-                    <View
-                        android:layout_width="4dp"
-                        android:layout_height="20dp"
-                        android:background="#E87920"
-                        android:layout_marginEnd="10dp"/>
+                    android:layout_marginBottom="12dp">
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Nomor WhatsApp Siswa"
-                        android:textColor="#2D1B00"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:fontFamily="sans-serif-medium"/>
+                        android:text="WhatsApp Siswa"
+                        android:textColor="#3E2723"
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
 
                     <!-- OTP Badge -->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="OTP Wajib"
-                        android:textColor="#E87920"
-                        android:textSize="10sp"
+                        android:text="Wajib OTP"
+                        android:textColor="#FFFFFF"
+                        android:textSize="11sp"
                         android:textStyle="bold"
+                        android:backgroundTint="#E08B3D"
                         android:background="@drawable/bg_badge_orange"
-                        android:paddingStart="8dp"
-                        android:paddingEnd="8dp"
-                        android:paddingTop="3dp"
-                        android:paddingBottom="3dp"/>
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"/>
 
                 </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Digunakan untuk verifikasi akun via kode OTP"
-                    android:textColor="#A08060"
-                    android:textSize="11sp"
-                    android:layout_marginBottom="14dp"/>
+                    android:text="Digunakan untuk verifikasi akun."
+                    android:textColor="#8D6E63"
+                    android:textSize="13sp"
+                    android:layout_marginBottom="24dp"/>
 
                 <!-- Input + Button row -->
                 <LinearLayout
@@ -310,43 +215,42 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
-                    android:layout_marginBottom="10dp">
+                    android:layout_marginBottom="16dp">
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/til_student_phone"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    <FrameLayout
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="56dp"
                         android:layout_weight="1"
-                        android:hint="08xxx..."
-                        app:boxBackgroundColor="#FFFFFF"
-                        app:boxStrokeColor="#E0B070"
-                        app:hintTextColor="#C88A40"
-                        app:boxCornerRadiusTopStart="10dp"
-                        app:boxCornerRadiusTopEnd="10dp"
-                        app:boxCornerRadiusBottomStart="10dp"
-                        app:boxCornerRadiusBottomEnd="10dp">
-                        <com.google.android.material.textfield.TextInputEditText
+                        android:background="@drawable/bg_input_minimal">
+                        <EditText
                             android:id="@+id/et_student_phone"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="phone"
-                            android:textColor="#2D1B00"/>
-                    </com.google.android.material.textfield.TextInputLayout>
+                            android:layout_height="match_parent"
+                            android:background="@null"
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp"
+                            android:hint="0812..."
+                            android:textColorHint="#A1887F"
+                            android:textColor="#3E2723"
+                            android:textSize="15sp"
+                            android:inputType="phone"/>
+                    </FrameLayout>
 
                     <Button
                         android:id="@+id/btn_send_otp_student"
                         android:layout_width="wrap_content"
-                        android:layout_height="52dp"
-                        android:text="Kirim OTP"
+                        android:layout_height="56dp"
+                        android:text="Kirim"
                         android:textColor="#FFFFFF"
                         android:textStyle="bold"
-                        android:textSize="12sp"
-                        android:backgroundTint="#E87920"
-                        android:layout_marginStart="10dp"
-                        android:paddingStart="14dp"
-                        android:paddingEnd="14dp"
-                        app:cornerRadius="10dp"/>
+                        android:textSize="14sp"
+                        android:background="@drawable/bg_button_minimal"
+                        app:backgroundTint="@null"
+                        android:layout_marginStart="12dp"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp"
+                        android:elevation="0dp"
+                        android:stateListAnimator="@null"/>
 
                 </LinearLayout>
 
@@ -357,99 +261,82 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
-                    android:background="@drawable/bg_status_warning"
-                    android:padding="10dp">
+                    android:background="@drawable/bg_input_minimal"
+                    android:backgroundTint="#FFF0E6"
+                    android:padding="16dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="⚠️"
                         android:textSize="14sp"
-                        android:layout_marginEnd="8dp"/>
+                        android:layout_marginEnd="12dp"/>
 
                     <TextView
                         android:id="@+id/tv_otp_status"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Belum diverifikasi — Wajib OTP untuk lanjut"
-                        android:textColor="#C45000"
-                        android:textSize="11sp"/>
+                        android:text="Belum diverifikasi"
+                        android:textColor="#D84315"
+                        android:textSize="13sp"
+                        android:textStyle="bold"/>
 
                 </LinearLayout>
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Card: WhatsApp Orang Tua (Laporan AI) -->
+        <!-- Card: WhatsApp Orang Tua -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="32dp"
-            app:cardCornerRadius="16dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="20dp"
             app:cardBackgroundColor="#FFFFFF"
-            app:cardElevation="3dp">
+            app:cardElevation="8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="20dp">
-
-                <!-- Section header -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginBottom="6dp">
-
-                    <View
-                        android:layout_width="4dp"
-                        android:layout_height="20dp"
-                        android:background="#4CAF50"
-                        android:layout_marginEnd="10dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="WhatsApp Orang Tua / Wali"
-                        android:textColor="#2D1B00"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:fontFamily="sans-serif-medium"/>
-
-                </LinearLayout>
+                android:padding="28dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="🤖  Khusus menerima laporan rekap belajar &amp; ibadah harian dari AI"
-                    android:textColor="#A08060"
-                    android:textSize="11sp"
-                    android:layout_marginBottom="14dp"/>
+                    android:text="WhatsApp Wali"
+                    android:textColor="#3E2723"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp"/>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/til_parent_contact"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="No. WhatsApp Orang Tua (08xxx)"
-                    app:boxBackgroundColor="#FFFFFF"
-                    app:boxStrokeColor="#A5D6A7"
-                    app:hintTextColor="#4CAF50"
-                    app:boxCornerRadiusTopStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusBottomEnd="10dp">
-                    <com.google.android.material.textfield.TextInputEditText
+                    android:text="Menerima laporan rekap belajar dari AI."
+                    android:textColor="#8D6E63"
+                    android:textSize="13sp"
+                    android:layout_marginBottom="24dp"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="@drawable/bg_input_minimal">
+                    <EditText
                         android:id="@+id/et_parent_contact"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="phone"
-                        android:textColor="#2D1B00"/>
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:hint="08xxx..."
+                        android:textColorHint="#A1887F"
+                        android:textColor="#3E2723"
+                        android:textSize="15sp"
+                        android:inputType="phone"/>
+                </FrameLayout>
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>

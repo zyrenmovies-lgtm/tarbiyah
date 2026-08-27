@@ -4,121 +4,104 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_gradient_main">
+    android:background="@drawable/bg_main_minimal"
+    android:animateLayoutChanges="true">
 
-    <!-- Header -->
-    <FrameLayout
-        android:id="@+id/header_register"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:background="@drawable/bg_register_header"
-        app:layout_constraintTop_toTopOf="parent">
+    <!-- Minimal Logo & App Name at top center (No block header) -->
+    <LinearLayout
+        android:id="@+id/ll_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="48dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:paddingTop="24dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="P E N D A F T A R A N"
+            android:textColor="#3E2723"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1"
+            android:fontFamily="sans-serif-medium"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/register_title"
-                android:textColor="#FFFFFF"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                android:fontFamily="sans-serif-medium"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lengkapi profil belajarmu"
+            android:textColor="#8D6E63"
+            android:textSize="12sp"
+            android:layout_marginTop="4dp"/>
+    </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Lengkapi data dirimu"
-                android:textColor="#FFE8CC"
-                android:textSize="12sp"
-                android:layout_marginTop="4dp"/>
-        </LinearLayout>
-    </FrameLayout>
-
-    <!-- Step Indicator -->
+    <!-- Step Indicator (Very clean dots instead of clunky boxes) -->
     <LinearLayout
         android:id="@+id/ll_step_indicator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingStart="24dp"
-        android:paddingEnd="24dp"
-        android:paddingTop="16dp"
-        android:paddingBottom="12dp"
+        android:paddingStart="48dp"
+        android:paddingEnd="48dp"
+        android:paddingTop="24dp"
+        android:paddingBottom="16dp"
         android:gravity="center_vertical"
-        app:layout_constraintTop_toBottomOf="@id/header_register">
+        app:layout_constraintTop_toBottomOf="@id/ll_logo">
 
         <!-- Step 1 -->
-        <TextView
+        <View
             android:id="@+id/step_1"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:text="1"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:textSize="14sp"
-            android:backgroundTint="#E87920"
-            android:background="@drawable/bg_button_gold"/>
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:background="@drawable/bg_button_minimal"/>
         <View
             android:id="@+id/line_1"
             android:layout_width="0dp"
             android:layout_height="2dp"
             android:layout_weight="1"
-            android:background="#E87920"/>
+            android:background="#E08B3D"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"/>
 
         <!-- Step 2 -->
-        <TextView
+        <View
             android:id="@+id/step_2"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:text="2"
-            android:textColor="@color/text_hint"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:textSize="14sp"
-            android:background="@drawable/bg_premium_card"/>
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:background="@drawable/bg_input_minimal"/>
         <View
             android:id="@+id/line_2"
             android:layout_width="0dp"
             android:layout_height="2dp"
             android:layout_weight="1"
-            android:background="@color/stroke_light"/>
+            android:background="#F0E5D8"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"/>
 
         <!-- Step 3 -->
-        <TextView
+        <View
             android:id="@+id/step_3"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:text="3"
-            android:textColor="@color/text_hint"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:textSize="14sp"
-            android:background="@drawable/bg_premium_card"/>
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:background="@drawable/bg_input_minimal"/>
         <View
             android:id="@+id/line_3"
             android:layout_width="0dp"
             android:layout_height="2dp"
             android:layout_weight="1"
-            android:background="@color/stroke_light"/>
+            android:background="#F0E5D8"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"/>
 
         <!-- Step 4 -->
-        <TextView
+        <View
             android:id="@+id/step_4"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:text="4"
-            android:textColor="@color/text_hint"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:textSize="14sp"
-            android:background="@drawable/bg_premium_card"/>
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:background="@drawable/bg_input_minimal"/>
     </LinearLayout>
 
     <!-- ViewPager for steps -->
@@ -126,6 +109,7 @@
         android:id="@+id/vp_register"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@id/ll_step_indicator"
         app:layout_constraintBottom_toTopOf="@id/ll_login_link"/>
 
@@ -135,7 +119,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingBottom="4dp"
+        android:paddingBottom="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/ll_nav_buttons">
@@ -143,17 +127,17 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/have_account"
-            android:textColor="@color/text_secondary"
-            android:textSize="@dimen/text_sm"/>
+            android:text="Sudah punya akun?"
+            android:textColor="#795548"
+            android:textSize="13sp"/>
 
         <TextView
             android:id="@+id/tv_go_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Masuk"
-            android:textColor="@color/accent_orange"
-            android:textSize="@dimen/text_sm"
+            android:textColor="#E08B3D"
+            android:textSize="13sp"
             android:textStyle="bold"
             android:paddingStart="4dp"/>
     </LinearLayout>
@@ -164,32 +148,38 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="@dimen/spacing_lg"
+        android:padding="24dp"
         android:gravity="center_vertical"
         android:background="#FFFFFF"
+        android:elevation="16dp"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
             android:id="@+id/btn_back"
             android:layout_width="0dp"
-            android:layout_height="@dimen/btn_height"
+            android:layout_height="56dp"
             android:layout_weight="1"
-            android:text="@string/btn_back"
-            android:textColor="@color/accent_orange"
-            android:background="@drawable/bg_button_outlined"
+            android:text="KEMBALI"
+            android:textColor="#E08B3D"
+            android:background="@drawable/bg_input_minimal"
+            app:backgroundTint="@null"
             android:visibility="gone"
-            android:layout_marginEnd="@dimen/spacing_sm"/>
+            android:layout_marginEnd="16dp"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"/>
 
         <Button
             android:id="@+id/btn_next"
             android:layout_width="0dp"
-            android:layout_height="@dimen/btn_height"
+            android:layout_height="56dp"
             android:layout_weight="1"
-            android:text="@string/btn_next"
+            android:text="LANJUT"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
-            android:backgroundTint="#E87920"
-            app:cornerRadius="12dp"/>
+            android:background="@drawable/bg_button_minimal"
+            app:backgroundTint="@null"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
