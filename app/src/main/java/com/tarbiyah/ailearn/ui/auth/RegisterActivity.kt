@@ -106,13 +106,11 @@ class RegisterActivity : AppCompatActivity() {
         val stepViews = listOf(binding.step1, binding.step2, binding.step3, binding.step4)
         val lineViews = listOf(binding.line1, binding.line2, binding.line3)
 
-        stepViews.forEachIndexed { index, textView ->
+        stepViews.forEachIndexed { index, view ->
             if (index <= step) {
-                textView.setTextColor(getColor(R.color.black_primary))
-                textView.setBackgroundResource(R.drawable.bg_button_gold)
+                view.setBackgroundResource(R.drawable.bg_button_minimal)
             } else {
-                textView.setTextColor(getColor(R.color.text_hint))
-                textView.setBackgroundResource(R.drawable.bg_premium_card)
+                view.setBackgroundResource(R.drawable.bg_input_minimal)
             }
         }
 
@@ -219,10 +217,10 @@ class RegisterStep2Fragment : Fragment() {
         binding.btnSendOtpStudent.setOnClickListener {
             val phone = binding.etStudentPhone.text.toString().trim()
             if (phone.isEmpty() || phone.length < 9) {
-                binding.tilStudentPhone.error = "Masukkan nomor WhatsApp yang valid"
+                binding.etStudentPhone.error = "Masukkan nomor WhatsApp yang valid"
                 return@setOnClickListener
             }
-            binding.tilStudentPhone.error = null
+            binding.etStudentPhone.error = null
 
             val registerActivity = activity as? RegisterActivity
             val studentName = registerActivity?.studentName?.ifEmpty { "Siswa Tarbiyah" } ?: "Siswa Tarbiyah"

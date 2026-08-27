@@ -97,20 +97,20 @@ class LoginActivity : AppCompatActivity() {
         var isValid = true
 
         if (email.isEmpty()) {
-            binding.tilEmail.error = "Email atau username tidak boleh kosong"
+            binding.etEmail.error = "Email atau username tidak boleh kosong"
             isValid = false
         } else {
-            binding.tilEmail.error = null
+            binding.etEmail.error = null
         }
 
         if (password.isEmpty()) {
-            binding.tilPassword.error = "Kata sandi tidak boleh kosong"
+            binding.etPassword.error = "Kata sandi tidak boleh kosong"
             isValid = false
         } else if (password.length < 6) {
-            binding.tilPassword.error = "Kata sandi minimal 6 karakter"
+            binding.etPassword.error = "Kata sandi minimal 6 karakter"
             isValid = false
         } else {
-            binding.tilPassword.error = null
+            binding.etPassword.error = null
         }
 
         return isValid
