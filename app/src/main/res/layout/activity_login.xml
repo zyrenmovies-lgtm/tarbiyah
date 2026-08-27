@@ -12,139 +12,152 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/spacing_lg">
 
-        <!-- Top Gold Bar Accent -->
-        <View
-            android:id="@+id/accent_bar"
-            android:layout_width="48dp"
-            android:layout_height="3dp"
-            android:background="@drawable/bg_button_gold"
-            android:layout_marginTop="56dp"
+        <!-- Mosque Illustration Header -->
+        <FrameLayout
+            android:id="@+id/header_frame"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_register_header"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- App Logo -->
-        <ImageView
-            android:id="@+id/iv_logo"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/ic_launcher_foreground"
-            android:layout_marginTop="@dimen/spacing_xl"
-            app:layout_constraintTop_toBottomOf="@id/accent_bar"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="20dp">
 
-        <!-- App Name -->
-        <TextView
-            android:id="@+id/tv_app_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TARBIYAH"
-            android:textColor="@color/gold_primary"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            android:letterSpacing="0.15"
-            android:layout_marginTop="@dimen/spacing_md"
-            app:layout_constraintTop_toBottomOf="@id/iv_logo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🕌"
+                    android:textSize="40sp"
+                    android:layout_marginBottom="8dp"/>
 
-        <!-- Tagline -->
-        <TextView
-            android:id="@+id/tv_tagline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="A I  L E A R N"
-            android:textColor="@color/green_accent"
-            android:textSize="12sp"
-            android:letterSpacing="0.3"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/tv_app_name"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TARBIYAH"
+                    android:textColor="#FFFFFF"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.2"
+                    android:fontFamily="sans-serif-medium"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="A I  L E A R N"
+                    android:textColor="#FFE8CC"
+                    android:textSize="11sp"
+                    android:letterSpacing="0.3"
+                    android:layout_marginTop="4dp"/>
+
+            </LinearLayout>
+        </FrameLayout>
 
         <!-- Welcome Text -->
         <TextView
             android:id="@+id/tv_welcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Selamat Datang Kembali"
+            android:text="Selamat Datang Kembali 👋"
             android:textColor="@color/text_secondary"
             android:textSize="14sp"
-            android:layout_marginTop="32dp"
-            app:layout_constraintTop_toBottomOf="@id/tv_tagline"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@id/header_frame"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <!-- Login Card -->
         <androidx.cardview.widget.CardView
             android:id="@+id/card_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/transparent"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="0dp"
-            android:layout_marginTop="@dimen/spacing_lg"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="6dp"
+            android:layout_marginTop="12dp"
             app:layout_constraintTop_toBottomOf="@id/tv_welcome"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
-            
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_premium_card"
                 android:orientation="vertical"
-                android:padding="@dimen/spacing_lg">
+                android:padding="24dp">
 
-                <!-- Email Input -->
+                <!-- Email -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="6dp"/>
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/til_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/label_email"
-                    app:hintTextColor="@color/gold_primary"
-                    app:boxBackgroundMode="none">
-
+                    android:layout_marginBottom="16dp"
+                    app:boxBackgroundColor="#FFF5EB"
+                    app:boxBackgroundMode="filled"
+                    app:boxStrokeColor="#E0CDB0"
+                    app:hintTextColor="#E87920"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxCornerRadiusTopEnd="10dp"
+                    app:boxCornerRadiusBottomStart="10dp"
+                    app:boxCornerRadiusBottomEnd="10dp">
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/bg_input_outline"
-                        android:padding="16dp"
                         android:inputType="textEmailAddress"
                         android:textColor="@color/text_primary"
-                        android:textColorHint="@color/text_hint"
-                        android:drawableStart="@android:drawable/ic_dialog_email"
-                        android:drawablePadding="12dp"
-                        android:drawableTint="@color/green_light"
-                        android:imeOptions="actionNext" />
+                        android:hint="nama@email.com"
+                        android:imeOptions="actionNext"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- Password Input -->
+                <!-- Password -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kata Sandi"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="6dp"/>
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/til_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/label_password"
-                    app:hintTextColor="@color/gold_primary"
-                    android:layout_marginTop="@dimen/spacing_md"
+                    app:boxBackgroundColor="#FFF5EB"
+                    app:boxBackgroundMode="filled"
+                    app:boxStrokeColor="#E0CDB0"
+                    app:hintTextColor="#E87920"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxCornerRadiusTopEnd="10dp"
+                    app:boxCornerRadiusBottomStart="10dp"
+                    app:boxCornerRadiusBottomEnd="10dp"
                     app:endIconMode="password_toggle"
-                    app:endIconTint="@color/gold_primary"
-                    app:boxBackgroundMode="none">
-
+                    app:endIconTint="#E87920">
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/bg_input_outline"
-                        android:padding="16dp"
                         android:inputType="textPassword"
                         android:textColor="@color/text_primary"
-                        android:textColorHint="@color/text_hint"
-                        android:drawableStart="@android:drawable/ic_lock_lock"
-                        android:drawablePadding="12dp"
-                        android:drawableTint="@color/green_light"
-                        android:imeOptions="actionDone" />
+                        android:hint="••••••••"
+                        android:imeOptions="actionDone"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- Forgot Password -->
@@ -153,11 +166,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/forgot_password"
-                    android:textColor="@color/gold_primary"
+                    android:textColor="@color/accent_orange"
                     android:textSize="@dimen/text_sm"
                     android:layout_gravity="end"
-                    android:paddingTop="@dimen/spacing_md"
-                    android:paddingBottom="@dimen/spacing_sm" />
+                    android:paddingTop="@dimen/spacing_sm"
+                    android:paddingBottom="@dimen/spacing_md"/>
 
                 <!-- Login Button -->
                 <Button
@@ -165,12 +178,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:text="@string/btn_login"
-                    android:textColor="@color/black_primary"
+                    android:textColor="#FFFFFF"
                     android:textStyle="bold"
                     android:textSize="16sp"
                     android:letterSpacing="0.05"
-                    android:background="@drawable/bg_button_gold"
-                    android:layout_marginTop="@dimen/spacing_sm" />
+                    android:backgroundTint="#E87920"
+                    app:cornerRadius="12dp"/>
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -181,30 +194,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="@dimen/spacing_xl"
+            android:layout_marginTop="@dimen/spacing_lg"
+            android:layout_marginBottom="32dp"
             app:layout_constraintTop_toBottomOf="@id/card_login"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="48dp">
+            app:layout_constraintBottom_toBottomOf="parent">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/no_account"
                 android:textColor="@color/text_secondary"
-                android:textSize="14sp" />
+                android:textSize="14sp"/>
 
             <TextView
                 android:id="@+id/tv_go_register"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/btn_register"
-                android:textColor="@color/gold_primary"
+                android:textColor="@color/accent_orange"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 android:paddingStart="4dp"
-                android:paddingEnd="4dp" />
+                android:paddingEnd="4dp"/>
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

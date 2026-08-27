@@ -1,47 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Base Colors -->
-    <color name="black_primary">#0B0E0D</color> <!-- Deep Emerald Black -->
-    <color name="black_surface">#131A17</color> <!-- Dark surface with green hint -->
-    <color name="black_card">#1B2420</color> <!-- Elevated dark card -->
-    <color name="black_card_alt">#23302B</color>
-    <color name="black_divider">#2A3832</color>
+    <!-- ===== LIGHT ISLAMIC THEME PALETTE ===== -->
 
-    <!-- Gold Colors -->
-    <color name="gold_primary">#D4AF37</color> <!-- Classic Gold -->
-    <color name="gold_light">#F3E5AB</color> <!-- Vanilla Gold -->
-    <color name="gold_dark">#997A00</color>
-    <color name="gold_subtle">#332A0D</color>
-    <color name="gold_text">#E5C07B</color>
+    <!-- Background Colors (Warm Cream) -->
+    <color name="black_primary">#FFF8F0</color>      <!-- Warm cream (was: deep black) -->
+    <color name="black_surface">#FFF2E4</color>      <!-- Slightly deeper cream -->
+    <color name="black_card">#FFFFFF</color>          <!-- Pure white cards -->
+    <color name="black_card_alt">#FFF5EB</color>     <!-- Very light orange tint -->
+    <color name="black_divider">#F0DFC8</color>      <!-- Soft divider -->
 
-    <!-- Green Colors -->
-    <color name="green_primary">#1E5631</color> <!-- Forest Green -->
-    <color name="green_light">#4C9A2A</color> <!-- Leaf Green -->
-    <color name="green_dark">#093028</color> <!-- Very Dark Emerald -->
-    <color name="green_subtle">#102920</color>
-    <color name="green_accent">#8FCE00</color>
+    <!-- Primary Accent: Warm Orange/Amber (Islamic warm) -->
+    <color name="gold_primary">#E87920</color>       <!-- Warm orange (was: gold) -->
+    <color name="gold_light">#FFC87A</color>         <!-- Light amber -->
+    <color name="gold_dark">#B35500</color>          <!-- Deep amber -->
+    <color name="gold_subtle">#FFF0DC</color>        <!-- Very light amber bg -->
+    <color name="gold_text">#C85A00</color>          <!-- Dark orange for text -->
 
-    <!-- Text Colors -->
-    <color name="text_primary">#F8F9FA</color>
-    <color name="text_secondary">#B0BEC5</color>
-    <color name="text_hint">#78909C</color>
-    <color name="text_gold">#E5C07B</color>
-    <color name="text_green">#A5D6A7</color>
-    <color name="text_red">#E57373</color>
+    <!-- Secondary: Forest Green (Islamic green) -->
+    <color name="green_primary">#2E7D32</color>      <!-- Rich forest green -->
+    <color name="green_light">#66BB6A</color>        <!-- Medium green -->
+    <color name="green_dark">#1B5E20</color>         <!-- Dark green -->
+    <color name="green_subtle">#E8F5E9</color>       <!-- Very light green bg -->
+    <color name="green_accent">#43A047</color>       <!-- Bright green accent -->
+
+    <!-- Text Colors (Dark on Light) -->
+    <color name="text_primary">#2D1B00</color>       <!-- Deep warm brown-black -->
+    <color name="text_secondary">#7A5C3A</color>     <!-- Medium brown -->
+    <color name="text_hint">#B09070</color>          <!-- Light brown hint -->
+    <color name="text_gold">#C85A00</color>          <!-- Dark orange text -->
+    <color name="text_green">#2E7D32</color>         <!-- Green text -->
+    <color name="text_red">#C62828</color>           <!-- Deep red -->
 
     <!-- Status Colors -->
-    <color name="color_warning">#FFB300</color>
-    <color name="color_error">#E53935</color>
-    <color name="color_success">#43A047</color>
-    <color name="color_info">#1E88E5</color>
+    <color name="color_warning">#F57C00</color>
+    <color name="color_error">#C62828</color>
+    <color name="color_success">#2E7D32</color>
+    <color name="color_info">#1565C0</color>
 
-    <!-- Transparent -->
+    <!-- Transparent & Overlay -->
     <color name="transparent">#00000000</color>
-    <color name="overlay_dark">#B3000000</color>
-    <color name="overlay_gold">#26D4AF37</color>
+    <color name="overlay_dark">#40000000</color>
+    <color name="overlay_gold">#26E87920</color>
 
-    <!-- Navigation -->
-    <color name="nav_selected">#D4AF37</color>
-    <color name="nav_unselected">#78909C</color>
-    <color name="nav_background">#0B0E0D</color>
+    <!-- Navigation Bar -->
+    <color name="nav_selected">#E87920</color>
+    <color name="nav_unselected">#B09070</color>
+    <color name="nav_background">#FFFFFF</color>
+
+    <!-- Extra Light Theme Specifics -->
+    <color name="page_background">#FFF8F0</color>
+    <color name="card_white">#FFFFFF</color>
+    <color name="accent_orange">#E87920</color>
+    <color name="accent_amber">#F4A843</color>
+    <color name="stroke_light">#E0CDB0</color>
 </resources>
